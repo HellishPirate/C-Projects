@@ -51,8 +51,7 @@ do {
     }
     else if (correctGuess == 0) { // 0 means that the two strings are the same
         printf("You are correct!\n");
-        guessNumber++;
-        printf("%i", guessNumber);
+        printf("%i", ++guessNumber);
     }
     else {
         guessNumber++;
