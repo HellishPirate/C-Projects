@@ -26,7 +26,7 @@ int main() {
     printf("%s\n", "Guess a word!");
 
     do {
-        scanf("%5s", userGuess);
+        scanf("%6s", userGuess);
         strlwr(userGuess);
         strcpy(hint, "*****"); // refreshed every iteration of the loop
         strcpy(chosenWord2,chosenWord); // also refreshed
