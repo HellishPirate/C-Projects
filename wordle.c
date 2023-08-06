@@ -20,17 +20,16 @@ int main() {
     chosenWord = wordList[rng];
     char chosenWord2[6];
     int guessNumber = 0;
-    char userGuess2[6];
+    char hint[6];
 
-    printf("%s\n", chosenWord); // printing the chosen word for testing
+    //printf("%s\n", chosenWord); // printing the chosen word for testing
     printf("%s\n", "Guess a word!");
 
     do {
-        scanf("%6s", userGuess);
-        strcpy(userGuess2, "*****");
-        strcpy(chosenWord2,chosenWord);
-        int yellowChar = 0;
-        int override = 0;
+        scanf("%5s", userGuess);
+        strlwr(userGuess);
+        strcpy(hint, "*****"); // refreshed every iteration of the loop
+        strcpy(chosenWord2,chosenWord); // also refreshed
         correctGuess = strcmp(userGuess,chosenWord);
         if (strlen(userGuess) != 5) { // checks if the user input is not a 5 letter word
             printf("Please enter a five letter word.\n");
@@ -44,26 +43,27 @@ int main() {
             guessNumber++;
             for (int i = 0; i <= 4; i++) { // green letter implementation
                 if (userGuess[i] == chosenWord[i]) {
-                    userGuess2[i] = toupper(userGuess[i]);
+                    hint[i] = toupper(userGuess[i]);
                 }
-                else if (!yellowChar) {
+                else {
                     for (int j = 0; j <= 4; j++) {
-                        if (i != j && userGuess[i] == chosenWord2[j] && userGuess[i] != userGuess[j]) {
-                            userGuess2[i] = tolower(userGuess[i]);
-                            if (!override) {
-                                chosenWord2[j] = '-';
-                                printf("%s\n", chosenWord2);
-                                break;
-                            }
+                        if (i != j && userGuess[i] == chosenWord2[j] && userGuess[i] != userGuess[j]) { // yellow letter implementation
+                            hint[i] = tolower(userGuess[i]);
+                            chosenWord2[j] = '-'; //replaces the letter in the chosenWord2 which matches the one from the userGuess, removing duplicates
+                            break;
                         }
                     }
                 }
             }
-            printf("%s\n", userGuess2); // prints off the hint
-            printf("%d\n", guessNumber); // prints off the attempt number
+            printf("%s\n", hint); // prints off the hint
+            printf("Attempt Number: %d\n", guessNumber); // prints off the attempt number
         }
     }
     while(guessNumber <= 5 && correctGuess != 0);
+    if (guessNumber == 6 && correctGuess != 0) {
+        printf("Sorry, you didn't guess the word! The word was: %s", chosenWord);
+    }
 
     return 0;
 }
+
