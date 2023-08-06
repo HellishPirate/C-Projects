@@ -26,7 +26,7 @@ int main() {
     printf("%s\n", "Guess a word!");
 
     do {
-        scanf("%5s", userGuess);
+        scanf("%6s", userGuess);
         strcpy(userGuess2, "*****");
         strcpy(chosenWord2,chosenWord);
         int yellowChar = 0;
