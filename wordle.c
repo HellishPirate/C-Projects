@@ -4,7 +4,7 @@
 #include <stdlib.h> // standard library
 #include <time.h> // access to time, manip for rng seed
 #include <string.h> // allows for strcmp, strlen, etc.
-#include <ctype.h> // can convert upper case to lower and vice versa
+#include <ctype.h> // can convert upper case to lower and vice versa -- this is a Microsoft-only thing
  
 char *wordList[] = {
    "hello","sweat","kiosk","avail","cache","magic","salsa","sound","usage","eerie","debug","heady","stage","flail","apple","ninth","dance","unlit","tasty","shirk"
