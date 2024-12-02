@@ -1,5 +1,3 @@
-/*Made by University of Warwick student, ID: [REDACTED] */
-
 #include <stdio.h> // standard input and output
 #include <stdlib.h> // standard library
 #include <time.h> // access to time, manip for rng seed
