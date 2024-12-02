@@ -1,4 +1,4 @@
-/*Made by University of Warwick student, ID: 2110409 */
+/*Made by University of Warwick student, ID: [REDACTED] */
 
 #include <stdio.h> // standard input and output
 #include <stdlib.h> // standard library
